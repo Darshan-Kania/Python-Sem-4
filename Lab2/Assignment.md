@@ -5,10 +5,11 @@
 3. Create a list of intergers and print squares of all numbers using list Comprehension.
 
 4. Create a dictionary of country and their capital. Take n inputs from the user. After the dictionary is created, perform the following operations :
+
 - Search based on a key
 - Delete an element based on a key
 
-5.Write a Python program to count the number of characters (character frequency) in a string.
+5. Write a Python program to count the number of characters (character frequency) in a string.
 
 6. Write a Python program to convert a given string into a list of words, modify one word and convert it back to the string.
 
