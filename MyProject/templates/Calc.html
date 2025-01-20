@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <form action="addpath" method="post">
-        {% csrf_token %}
-        <input type="text" name="num1" placeholder="Enter 1st Number">
-        <input type="text" name="num2"  placeholder="Enter 2nd Number">
-        <button type="submit">Submit</button>
+      {% csrf_token %}
+      <input type="text" name="num1" placeholder="Enter 1st Number" />
+      <input type="text" name="num2" placeholder="Enter 2nd Number" />
+      <p>Result: {{ans}}</p>
+      <button type="submit">Submit</button>
     </form>
-
-</body>
-
+  </body>
 </html>

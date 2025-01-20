@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(3, 1, 53);
+    text-align: center;
+    color: aqua;
+}
+h2
+{
+    font-style: italic;
+    size: 30px;
+    color: pink;
+}
+p{
+    font-size: 20px;
+}
+.blue
+{
+    color: blue;
+}
+.red
+{
+    color: red;
+}
+.green
+{
+    color: green;
+}

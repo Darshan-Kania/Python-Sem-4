@@ -20,6 +20,8 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-    path('', views.home, name="Home"),
-    path('addpath', views.add, name="ADD")
+    # path('', views.home, name="Home"),
+    path('addpath', views.add, name="ADD"),
+    path('home', views.home, name="Home"),
+    path('', views.myView, name="Forms")
 ]
