@@ -12,6 +12,7 @@ urlpatterns = [
     path('<int:blog_id>/create_post/', create_blog_post, name='create_blog_post'),
     path('home/', home, name='home'),
     # Add other URL patterns as needed
+    path('show', views.show, name='show'),
     path('register/', register, name='register'),
     path("login/", views.login_request, name="login"),
     path("", views.home, name="home"),

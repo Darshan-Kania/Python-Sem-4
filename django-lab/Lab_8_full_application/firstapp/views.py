@@ -1,17 +1,18 @@
 # blog/views.py
 from django.shortcuts import render, redirect
 from .forms import BlogForm, BlogPostForm
-from .models import Blog,BlogPost
+from .models import Blog, BlogPost
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
 
 from .forms import NewUserForm
-from django.contrib.auth import login, authenticate #add this
+from django.contrib.auth import login, authenticate  # add this
 from django.contrib import messages
-from django.contrib.auth.forms import AuthenticationForm #add this
-from django.contrib.auth import login, authenticate, logout #add this
+from django.contrib.auth.forms import AuthenticationForm  # add this
+from django.contrib.auth import login, authenticate, logout  # add this
+
 
 def home(request):
     blogs = Blog.objects.all()
@@ -34,6 +35,7 @@ def create_blog(request):
         form = BlogForm()
     return render(request, 'create_blog.html', {'form': form})
 
+
 def create_blog_post(request, blog_id):
     blog = Blog.objects.get(id=blog_id)
     if request.method == 'POST':
@@ -48,10 +50,7 @@ def create_blog_post(request, blog_id):
     return render(request, 'create_blog_post.html', {'form': form, 'blog': blog})
 
 
-
-
 # myapp/views.py
-
 
 
 def register(request):
@@ -60,11 +59,13 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("firstapp:home")  # Redirect to the home page after registration
+            # Redirect to the home page after registration
+            return redirect("firstapp:home")
     else:
         form = UserCreationForm()
 
     return render(request, 'register.html', {'form': form})
+
 
 def login_request(request):
     if request.method == "POST":
@@ -78,13 +79,20 @@ def login_request(request):
                 messages.info(request, f"You are now logged in as {username}.")
                 return redirect("firstapp:home")
             else:
-                messages.error(request,"Invalid username or password.")
+                messages.error(request, "Invalid username or password.")
         else:
-            messages.error(request,"Invalid username or password.")
+            messages.error(request, "Invalid username or password.")
     form = AuthenticationForm()
-    return render(request=request, template_name="login.html", context={"login_form":form})
+    return render(request=request, template_name="login.html", context={"login_form": form})
+
 
 def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
     return redirect("firstapp:home")
+
+
+def show(request):
+    blogs = Blog.objects.all()
+    blog_posts = BlogPost.objects.all()
+    return render(request, 'home.html', {'blogs': blogs, 'blog_posts': blog_posts})
